@@ -10,6 +10,8 @@ import edu.illinois.cs.cs125.lib.mazemaker.Maze;
 @SuppressWarnings("checkstyle:emptyblock")
 public class SolveMaze {
 
+
+
     /**
      * Implement your maze solving algorithm in the main method below.
      *
@@ -34,6 +36,13 @@ public class SolveMaze {
          * Feel free to adjust this number if you experiment with other mazes.
          */
         for (int step = 0; step < 1000; step++) {
+            while (!maze.isFinished()) {
+                maze.turnLeft();
+                while (!maze.canMove()) {
+                    maze.turnRight();
+                }
+                maze.move();
+            }
             // Implement your maze solving algorithm here
         }
 
